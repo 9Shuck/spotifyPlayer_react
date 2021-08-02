@@ -55,7 +55,9 @@ const Home = () => {
 		return (
 			<figure>
 				<figcaption>
-					<h4>{currentTitleSong}</h4>
+					<h4>
+						<p>Playing {currentTitleSong}</p>
+					</h4>
 				</figcaption>
 				<audio
 					controls
@@ -71,43 +73,47 @@ const Home = () => {
 	};
 
 	return (
-		<div className="container text-center mt-5">
-			<h1>🎧 PLAYLIST 🎧</h1>
-			<ol>{save}</ol>
+		<div className="container text-center mt-3">
+			<h1>PLAYLIST 🎧</h1>
+			<ul>{save}</ul>
 			<ul>
 				<Player />
-				<button
-					onClick={() => {
-						if (currentIndexSong != 0) {
-							setCurrentSong(list[currentIndexSong - 1].url);
-							setCurrentIndexSong(currentIndexSong - 1);
-							setCurrentTitleSong(
-								list[currentIndexSong - 1].name
-							);
-						} else {
-							setCurrentSong(list[list.length - 1].url);
-							setCurrentIndexSong(list.length - 1);
-							setCurrentTitleSong(list[list.length - 1].name);
-						}
-					}}>
-					Previous
-				</button>
-				<button
-					onClick={() => {
-						if (currentIndexSong != list.length - 1) {
-							setCurrentSong(list[currentIndexSong + 1].url);
-							setCurrentIndexSong(currentIndexSong + 1);
-							setCurrentTitleSong(
-								list[currentIndexSong + 1].name
-							);
-						} else {
-							setCurrentSong(list[0].url);
-							setCurrentIndexSong(0);
-							setCurrentTitleSong(list[0].name);
-						}
-					}}>
-					Next
-				</button>
+				<div className="containerButton">
+					<button
+						className="btn btn-light"
+						onClick={() => {
+							if (currentIndexSong != 0) {
+								setCurrentSong(list[currentIndexSong - 1].url);
+								setCurrentIndexSong(currentIndexSong - 1);
+								setCurrentTitleSong(
+									list[currentIndexSong - 1].name
+								);
+							} else {
+								setCurrentSong(list[list.length - 1].url);
+								setCurrentIndexSong(list.length - 1);
+								setCurrentTitleSong(list[list.length - 1].name);
+							}
+						}}>
+						<i className="fas fa-backward"></i>
+					</button>
+					<button
+						className="btn btn-light"
+						onClick={() => {
+							if (currentIndexSong != list.length - 1) {
+								setCurrentSong(list[currentIndexSong + 1].url);
+								setCurrentIndexSong(currentIndexSong + 1);
+								setCurrentTitleSong(
+									list[currentIndexSong + 1].name
+								);
+							} else {
+								setCurrentSong(list[0].url);
+								setCurrentIndexSong(0);
+								setCurrentTitleSong(list[0].name);
+							}
+						}}>
+						<i className="fas fa-forward"></i>
+					</button>
+				</div>
 			</ul>
 		</div>
 	);
