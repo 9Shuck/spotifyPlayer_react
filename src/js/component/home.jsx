@@ -6,11 +6,9 @@ import Button from "./button.jsx";
 const Home = () => {
 	//Declare state of array
 	const [list, setList] = useState([]);
-	const [currentSong, setCurrentSong] = useState(
-		"files/mario/songs/castle.mp3"
-	);
-	const [currentTitleSong, setCurrentTitleSong] = useState("Mario Castle");
-	const [currentIndexSong, setCurrentIndexSong] = useState(1);
+	const [currentSong, setCurrentSong] = useState("");
+	const [currentTitleSong, setCurrentTitleSong] = useState("");
+	const [currentIndexSong, setCurrentIndexSong] = useState();
 
 	//Declare url of the API
 	let url = "https://assets.breatheco.de/apis/sound/songs";
